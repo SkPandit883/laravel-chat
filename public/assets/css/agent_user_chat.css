@@ -1,0 +1,769 @@
+@import url("https://fonts.googleapis.com/css?family=Amaranth:400,700&amp;display=swap");
+/* ==> Amaranth */
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One&amp;display=swap");
+/* ==> Fjalla One */
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;display=swap");
+/* ==> Ubuntu */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;display=swap");
+.no-padding-col {
+  padding: 0 !important;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#agentUserChat {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0))), url("../assets/updates/img/background_pattern_2.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../assets/updates/img/background_pattern_2.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 0 -20px 0;
+  border: 1px solid #FFFFFF;
+}
+
+.agent-user-chat-container {
+  background-color: #F5F7FB;
+  margin: 20px 10px;
+  -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.9);
+          box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.9);
+}
+
+.agent-list {
+  border-right: 1px solid #DADADA;
+  min-height: 650px;
+}
+
+@media only screen and (max-width: 992px) {
+  .agent-list {
+    min-height: 50px;
+  }
+}
+
+.agent-list .header {
+  border-bottom: 1px solid #DADADA;
+  position: relative;
+  padding: 23px 10px 7px;
+}
+
+.agent-list .header h6 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu';
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.agent-list .search-agent {
+  position: relative;
+  background-color: #E7E7E7;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 11px 25px -15px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 11px 25px -15px rgba(0, 0, 0, 0.4);
+}
+
+.agent-list .search-agent input {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  font-family: 'Ubuntu';
+  color: #0a0a0a;
+  outline: none;
+}
+
+.agent-list .search-agent input::-webkit-input-placeholder {
+  color: #646464;
+}
+
+.agent-list .search-agent input:-ms-input-placeholder {
+  color: #646464;
+}
+
+.agent-list .search-agent input::-ms-input-placeholder {
+  color: #646464;
+}
+
+.agent-list .search-agent input::placeholder {
+  color: #646464;
+}
+
+.agent-list .search-agent button {
+  position: absolute;
+  right: 15px;
+  color: #1e3b65;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.agent-card {
+  padding: 7px 7px 7px 64px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition: .7s ease-in-out;
+  transition: .7s ease-in-out;
+  border-bottom: 1px solid #DADADA;
+}
+
+.agent-card.active,
+.agent-card:hover {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid transparent;
+}
+
+.agent-card.active {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+}
+
+.agent-card.active button {
+  background-color: #e0e0e0;
+  color: #1e3b65;
+  font-family: 'Amaranth';
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 70px;
+  height: 30px;
+  margin: 7px 0 0 0;
+}
+
+.agent-card img,
+.agent-chat-section .agent-intro-left img {
+  height: 45px;
+  width: 45px;
+  border: 1px solid #DADADA;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  position: absolute;
+  left: 7px;
+  top: 6px;
+}
+
+.agent-card span {
+  display: block;
+}
+
+.agent-card .agent-info {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.agent-card .agent-info .title,
+.agent-chat-section .agent-intro-left .agent-name h6 {
+  font-family: 'Amaranth';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: normal;
+  height: 24px;
+  overflow: hidden;
+}
+
+.agent-card .agent-info .message,
+.agent-chat-section .agent-intro-left .agent-name span {
+  font-family: 'Roboto';
+  color: #999999;
+  font-size: 12px;
+  height: 19px;
+  overflow: hidden;
+}
+
+.agent-card .agent-info .message {
+  text-transform: capitalize;
+}
+
+.agent-card .quote-status {
+  padding: 0;
+  margin: -2px 0 0 0;
+  font-size: 12px;
+  font-family: 'Roboto';
+}
+
+.agent-card .quote-status li {
+  display: inline-block;
+  margin: 0 15px 0 0;
+}
+
+.agent-card .pricing,
+.agent-card .timer {
+  font-size: 15px;
+  vertical-align: middle;
+  text-align: right;
+  text-transform: uppercase;
+  font-family: 'Amaranth';
+  color: #1D3F6A;
+  padding: 10px 0;
+}
+
+.agent-card .pricing i,
+.agent-card .timer i {
+  margin-right: 5px;
+}
+
+.agent-card:last-child {
+  border-bottom: none;
+}
+
+.agent-quote-details {
+  border-right: 1px solid #DADADA;
+  height: 100%;
+}
+
+.agent-quote-details .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 9px 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#115489), to(#1e3b65));
+  background: linear-gradient(to right, #115489, #1e3b65);
+  min-height: 54px;
+}
+
+.agent-quote-details .header .quote-time-left label {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-family: 'Ubuntu';
+  color: #f1f1f1;
+  display: block;
+}
+
+.agent-quote-details .header .quote-time-left span {
+  font-family: 'Amaranth';
+  font-size: 15px;
+  display: block;
+  padding: 0;
+  margin: -5px 0 0 0;
+  color: #F1F1F1;
+}
+
+.agent-quote-details .header .active-agent {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-size: 17px;
+  color: #F1F1F1;
+}
+
+.agent-quote-details .header .active-agent img {
+  height: 35px;
+  width: 35px;
+  border: 1px solid #DADADA;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 7px 0 0;
+}
+
+.agent-quote-details .header .active-agent h6 {
+  display: inline-block;
+  font-size: 18px;
+  vertical-align: middle;
+  font-weight: 300;
+}
+
+.agent-quote-details .header button {
+  background-color: transparent;
+  color: #F1F1F1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.agent-quote-details .contents {
+  padding: 10px;
+}
+
+.agent-quote-details .contents .chat-tabbed-content {
+  margin: 10px 0 0 0;
+}
+
+.agent-quote-details .contents .chat-tabbed-content .tabs {
+  background-color: #EEEEEE;
+  border-radius: 5px;
+}
+
+.agent-quote-details .contents .chat-tabbed-content .tabs li a {
+  color: #1e3b65;
+  font-family: 'Amaranth';
+  font-size: 16px;
+}
+
+.agent-quote-details .contents .tabs .indicator {
+  background-color: #1e3b65;
+  height: 3px;
+}
+
+.agent-quote-details .contents h5 {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #1D3F6A;
+  font-family: 'Ubuntu';
+  font-weight: 600;
+  padding: 0 3px 3px;
+  border-bottom: 2px solid #1e3b65;
+  display: inline-block;
+  margin: 20px 0 0 0;
+}
+
+.add-options-container {
+  position: relative;
+}
+
+.add-options-container button {
+  float: right;
+  margin: 15px 0 0 0;
+}
+
+.add-options-dropdown {
+  right: 0;
+  left: auto !important;
+  top: 55px !important;
+  position: absolute;
+  width: 200px !important;
+}
+
+.add-options-dropdown li i {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px 0 0;
+}
+
+.add-options-dropdown li {
+  font-family: 'Ubuntu';
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.add-options-dropdown li span {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+}
+
+.add-options-dropdown a {
+  color: inherit;
+}
+
+.agent-quote-details .quote-table {
+  margin-bottom: 25px;
+  overflow: auto;
+}
+
+.agent-quote-details .quote-table .quote-options {
+  display: block;
+  font-family: 'Ubuntu';
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.agent-quote-details .quote-table .quote-options span {
+  color: #1e3b65;
+  font-weight: 600;
+}
+
+.agent-quote-details .quote-table .quote-table-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.agent-quote-details .quote-table .quote-table-head h6 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-family: 'Ubuntu';
+  color: #1e3b65;
+  font-weight: 600;
+}
+
+.agent-quote-details .quote-table .quote-table-head button {
+  border: none;
+  background-color: transparent;
+  color: #1e3b65;
+  font-size: 16px;
+}
+
+.agent-quote-details .quote-table table {
+  border-collapse: collapse;
+  font-family: 'Ubuntu';
+}
+
+.agent-quote-details .quote-table table,
+.agent-quote-details .quote-table table tr,
+.agent-quote-details .quote-table table td {
+  border: 1px solid #1e3b65;
+  padding: 5px;
+}
+
+.agent-quote-details .quote-table table thead {
+  color: #1D3F6A;
+  font-weight: 700;
+}
+
+.agent-quote-details .no-offer {
+  padding: 90px 0;
+  text-align: center;
+  font-family: 'Ubuntu';
+}
+
+.agent-quote-details .no-offer h6 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1e3b65;
+  padding: 10px;
+  line-height: 30px;
+}
+
+.agent-chat-section {
+  position: relative;
+  min-height: 400px;
+  height: 100%;
+}
+
+.agent-chat-section .agent-intro {
+  border-bottom: 1px solid #DADADA;
+  position: relative;
+  padding: 0 0 0 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 992px) {
+  .agent-chat-section .agent-intro {
+    border-top: 2px solid #1e3b65;
+  }
+}
+
+.agent-chat-section .agent-intro-left {
+  padding: 5px 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-right: 1px solid #DADADA;
+}
+
+.agent-chat-section .agent-intro-left .agent-name h6 {
+  margin: 5px 0 -2px 0;
+}
+
+.agent-chat-section .agent-intro-left .agent-name span {
+  display: block;
+  font-family: 'Amaranth';
+  color: #0a0a0a;
+}
+
+.agent-chat-section .agent-intro .call-icon {
+  color: #1e3b65;
+  margin: 0 15px 0 0;
+  font-size: 22px;
+}
+
+.agent-chat-section .agent-intro-right .quoted-price {
+  font-family: 'Ubuntu';
+  font-size: 14px;
+  padding: 3px 40px 0 5px;
+}
+
+.agent-chat-section .agent-intro-right .quoted-price label {
+  display: block;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  color: #1D3F6A;
+  font-weight: 500;
+}
+
+.agent-chat-section .agent-intro-right .quoted-price span {
+  font-size: 16px;
+  margin: -5px 0 0 0;
+  padding: 0;
+  color: #1D3F6A;
+  font-weight: 500;
+  display: block;
+}
+
+.agent-chat-section .approve-quote {
+  border-top: 1px solid #DADADA;
+  padding: 5px;
+}
+
+.agent-chat-section .approve-quote button {
+  width: calc(50% - 2px);
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 13px;
+  padding: 3px 0;
+}
+
+.agent-chat-section .approve-quote .success-btn {
+  background-color: #0CAC02;
+}
+
+.agent-chat-section .approve-quote .decline-btn {
+  background-color: #FF0000;
+}
+
+.agent-chat-section .chat-bottom {
+  position: absolute;
+  bottom: 0;
+  margin: 0 0 45px 0;
+  width: 100%;
+  max-height: inherit;
+  max-height: calc(100% - 123px);
+  vertical-align: bottom;
+  overflow: auto;
+  padding: 0 0 15px 0;
+}
+
+.agent-chat-section .chat-bottom .messages {
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0;
+}
+
+.agent-chat-section .chat-bottom .messages.sent {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.agent-chat-section .chat-bottom .messages img {
+  height: 35px;
+  width: 35px;
+  border: 1px solid #DADADA;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+.agent-chat-section .chat-bottom .messages span {
+  background-color: #FFFFFF;
+  border: 1px solid #DFDFE0;
+  border-radius: 7px;
+  padding: 4px;
+  display: initial;
+  height: 100%;
+}
+
+.agent-chat-section .chat-bottom .messages.sent span {
+  margin-right: 7px;
+  margin-left: 40px;
+}
+
+.agent-chat-section .chat-bottom .messages.received span {
+  margin-left: 7px;
+  margin-right: 40px;
+}
+
+.agent-chat-section .chat-bottom .messages .quote {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.agent-chat-section .chat-bottom .messages .quote p {
+  padding: 8px 5px;
+  font-family: 'Ubuntu';
+  margin: 0;
+  line-height: normal;
+  font-weight: 400;
+}
+
+.agent-chat-section .chat-bottom .messages .quote button {
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#115489), to(#1e3b65));
+  background: linear-gradient(to right, #115489, #1e3b65);
+  border: none;
+  color: #FFFFFF;
+  padding: 5px;
+  font-family: 'Ubuntu';
+  font-size: 14px;
+  border: 1px solid #1e3b65;
+}
+
+.agent-chat-section .chat-bottom .messages.received .quote {
+  margin: 0 40px 0 7px;
+}
+
+.agent-chat-section .chat-bottom .messages.sent .quote {
+  margin: 0 7px 0 40px;
+}
+
+.agent-chat-section .message-list {
+  height: calc(50%);
+  overflow: auto;
+}
+
+.agent-chat-section .message-box {
+  background-color: #FFFFFF;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  -webkit-box-shadow: 0px -4px 20px -15px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px -4px 20px -15px rgba(0, 0, 0, 0.75);
+  height: 45px;
+}
+
+.agent-chat-section .message-box input {
+  width: calc(100% - 70px);
+  border: none;
+  font-size: 16px;
+  font-family: 'Ubuntu';
+  outline: none;
+}
+
+.agent-chat-section .message-box button {
+  position: absolute;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  color: #363636;
+}
+
+.agent-chat-section .message-box button.add-on-button {
+  right: 40px;
+}
+
+.agent-quote-details .offered-price .quote-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.agent-quote-details .offered-price .quote-item button {
+  background: transparent;
+  border: none;
+  color: #1e3b65;
+  outline: none;
+  font-size: 16px;
+}
+
+.agent-quote-details .offered-price .quote-item .quote-details {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0 15px;
+}
+
+.agent-quote-details .offered-price .quote-item .quote-details h6 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Amaranth';
+  color: #1e3b65;
+  font-size: 18px;
+}
+
+.agent-quote-details .offered-price .quote-item .quote-details span {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: 'Ubuntu';
+}
+
+.agent-quote-details .offered-price .quote-item .quote-pricing {
+  font-weight: 400;
+  color: #1e3b65;
+  font-family: 'Amaranth';
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.agent-quote-details .offered-price .total-price {
+  font-family: 'Amaranth';
+  font-size: 18px;
+  color: #1e3b65;
+  float: right;
+}
+
+.chat-bottom::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.chat-bottom::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.chat-bottom::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.chat-bottom::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.itinerary-popup-container .popup-actions button {
+  margin: 5px;
+}
+/*# sourceMappingURL=agent_user_chat.css.map */
