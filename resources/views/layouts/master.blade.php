@@ -460,7 +460,6 @@
             let message_container = document.getElementById('message_container');
             message_container.innerHTML += `<div class="messages received"><img src="https://travelquoter.com/assets/img/agents/25.png" alt="Agent Name"><span>${data.message}</span></div>`;
             message_container.scrollTop = message_container.scrollHeight;
-            console.log(data);
         });
         document.getElementById('message').addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
@@ -476,7 +475,6 @@
                     })
                     .then(response => {
                         const res = response.data;
-                        console.log(`GET users`, res);
                         message_input.value = "";
                     })
                     .catch(error => console.error(error));
