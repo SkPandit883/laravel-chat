@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ChatEvent implements  ShouldBroadcast
+class ChatEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,10 +20,14 @@ class ChatEvent implements  ShouldBroadcast
      * @return void
      */
     public $message;
-    public $name="Santosh";
-    public function __construct($message)
+    public  $to_user;
+    public $from_user;
+    public function __construct($message,$to_user,$from_user)
     {
-        $this->message=$message;
+        $this->message = $message;
+        $this->to_user = $to_user;
+        $this->from_user = $from_user;
+
     }
 
     /**
@@ -35,7 +39,8 @@ class ChatEvent implements  ShouldBroadcast
     {
         return ['chat-channel'];
     }
-    public function broadcastAs(){
+    public function broadcastAs()
+    {
         return 'chat-event';
     }
 }

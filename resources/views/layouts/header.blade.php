@@ -10,18 +10,28 @@
 <nav class="top-navigation">
     <div class="nav-wrapper">
         <a href="https://travelquoter.com/" class="brand-logo">
-            <img src="/assets/img/xlogo.png.pagespeed.ic.3XmXFEiZxX.png" alt="TravelQuoter"
-                class="responsive-img">
+            <img src="/assets/img/xlogo.png.pagespeed.ic.3XmXFEiZxX.png" alt="TravelQuoter" class="responsive-img">
         </a>
         <ul id="nav-mobile" class="right">
 
             <li>
                 <a href="https://travelquoter.com/login" class="login-register">
                     <i class="fa fa-users"></i>
-                    <span>Login/Register</span>
+                    <span>{{ Auth::user()->name }}</span>
                 </a>
+            <li>
+                <form action="{{ route('logout') }}" method="post" class="mr-3 mt-3">
+                    @csrf
+                    <button type="submit"><img
+                            src="https://img.icons8.com/ios-filled/25/000000/logout-rounded-up.png" />
+
+                    </button>
+                </form>
 
             </li>
+
+            </li>
+
         </ul>
         <div id="slide-out" class="side-nav">
             <ul class="sidenav-inner">
@@ -51,8 +61,7 @@
                 </a>
             </ul>
             <div class="center-align">
-                <a href="https://travelquoter.com/login"><button
-                        class="login-register">Login/Register</button></a>
+                <a href="https://travelquoter.com/login"><button class="login-register">Login/Register</button></a>
 
             </div>
         </div>

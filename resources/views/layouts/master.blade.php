@@ -250,6 +250,7 @@
     <link rel="stylesheet" href="https://travelquoter.com/css/compat/ie.css">
     <![endif]-->
     <link rel="stylesheet" href="/assets/css/agent_user_chat.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -377,8 +378,8 @@
             <p class="chat-feedback" style="display: none;">Your partner is typing…</p>
 
             <fieldset>
-                <input id="send-message-text" type="text" class="browser-default" placeholder="Type your message…"
-                    autocomplete="off" data-emojiable="true" autofocus>
+                <input id="send-message-text" type="text" class="browser-default"
+                    placeholder="Type your message…" autocomplete="off" data-emojiable="true" autofocus>
                 <input type="hidden">
                 <a href="#" style="width: 30px; height: 30px; margin-left: 10px; color: #1a8a34;"
                     id="chat-msg-send-btn"><i class="material-icons"
@@ -394,8 +395,7 @@
                 <div class="col s12">
                     <label for="chat-reason" style="color: black; font-weight: bolder;">Why do you want to
                         chat?</label>
-                    <textarea name="chat-reason" id="chat-reason" cols="30" rows="10"
-                        style="height: 9rem; color: black"></textarea>
+                    <textarea name="chat-reason" id="chat-reason" cols="30" rows="10" style="height: 9rem; color: black"></textarea>
                 </div>
                 <!--/car type-->
                 <button
@@ -417,7 +417,6 @@
             });
         })(jQuery);
         //]]>
-
     </script>
     <script src="/assets/lib/lokijs.min.js.pagespeed.jm.dJMy2mwH0I.js"></script>
     <script src="/assets/cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
@@ -431,58 +430,24 @@
     </script>
     <script>
         eval(mod_pagespeed_ahMp$aBa3q);
-
     </script>
     <script>
         eval(mod_pagespeed_XhsN__Si4y);
-
     </script>
     <script src="/assets/lib/webshim/polyfiller.js"></script>
     <script>
         webshims.polyfill();
-
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134372564-1"></script>
     {{-- <script src="../../../resources/js/bootstrap.js"></script> --}}
-    <script src="/custom.js"></script>
-    {{-- <script src="/chat.js"></script> --}}
     <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
-        Pusher.logToConsole = true;
-        var pusher = new Pusher('433abd34166e2985ae62', {
-            cluster: 'mt1'
-        });
-        var channel = pusher.subscribe('chat-channel');
-        channel.bind('chat-event', function(data) {
-            let message_container = document.getElementById('message_container');
-            message_container.innerHTML += `<div class="messages received"><img src="https://travelquoter.com/assets/img/agents/25.png" alt="Agent Name"><span>${data.message}</span></div>`;
-            message_container.scrollTop = message_container.scrollHeight;
-        });
-        document.getElementById('message').addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                sendMessage()
-            }
-        });
-        function sendMessage() {
-            var message_input = document.getElementById('message');        
-            if (message.value != '') {
-                axios.post('/api/send-message', {
-                        'message': message_input.value
-                    })
-                    .then(response => {
-                        const res = response.data;
-                        message_input.value = "";
-                    })
-                    .catch(error => console.error(error));
-            }
-        }
-     
-       
-
+        var current_user_id = <?php echo Auth::user()->id; ?>;
     </script>
+    <script src="/custom.js"></script>
+    <script src="/chat.js"></script>
 
 </body>
