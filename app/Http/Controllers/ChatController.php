@@ -11,6 +11,8 @@ class ChatController extends Controller
 {
     public function sendMessage(Request $request)
     {
+        $file =$request->file;
+        return $file;
         Message::create([
             'to_user' => $request->to_user,
             'from_user' => $request->from_user,

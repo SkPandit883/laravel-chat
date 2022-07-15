@@ -17,4 +17,5 @@ class Message extends Model
     {
         return  $this->hasMany(Message::class, 'to_user');
     }
+    
 }

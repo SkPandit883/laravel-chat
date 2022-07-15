@@ -21,30 +21,35 @@ document.getElementById('message').addEventListener("keypress", function (event)
         sendMessage()
     }
 });
-
+const fileUploader = document.getElementById('file-uploader');
+var uploadedFile;
 function sendMessage() {
     var message_input = document.getElementById('message');
     document.getElementById('file-container').style.display = "none";
-
-    if (message.value != '' && document.getElementById('file-uploader').value != '') {
+    if (message_input.value == '') {
         axios.post('/api/send-message', {
             'message': message_input.value,
             'to_user': document.getElementById('to_user').value,
-            'from_user': document.getElementById('from_user').value
+            'from_user': document.getElementById('from_user').value,
+            'file': uploadedFile
+        }, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            }
         })
             .then(response => {
-                const res = response.data;
                 message_input.value = "";
+                console.log(response);
+                const res = response.data;
 
             })
             .catch(error => console.error(error));
     }
 }
-const fileUploader = document.getElementById('file-uploader');
 function setFile(event) {
-    console.log(event);
     const files = event.target.files;
     const file = files[0];
+    uploadedFile = file
     reader.readAsDataURL(file);
     reader.addEventListener('load', (event) => {
         document.getElementById('file-container').style.display = "block";
@@ -57,7 +62,6 @@ function setFile(event) {
             other_file.innerText = file.name;
             other_file.style.display = 'block';
         }
-        console.log(file.name);
     });
 }
 
