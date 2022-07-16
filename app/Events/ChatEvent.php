@@ -22,11 +22,13 @@ class ChatEvent implements ShouldBroadcast
     public $message;
     public  $to_user;
     public $from_user;
-    public function __construct($message,$to_user,$from_user)
+    public $file;
+    public function __construct($message,$to_user,$from_user,$file)
     {
-        $this->message = $message;
+        $this->message = $message??"";
         $this->to_user = $to_user;
         $this->from_user = $from_user;
+        $this->file=$file??"";
 
     }
 

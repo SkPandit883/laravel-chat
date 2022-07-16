@@ -30,3 +30,10 @@
     height: 30px;
     padding: 2px
 }
+.message-img{
+    border: none;
+    height: 140px;
+    width: 109px;
+    border-radius: 0px;
+
+}

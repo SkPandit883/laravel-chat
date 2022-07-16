@@ -181,9 +181,19 @@
                                             sent
                                         @else
                                         received
-                                        @endif "><img src="https://travelquoter.com/assets/img/agents/25.png"
-                                            alt="Agent Name">
-                                        <span>{{$message->message}}</span>
+                                        @endif ">
+                                        <img src="https://travelquoter.com/assets/img/agents/25.png" alt="Agent Name">
+                                        
+                                        <span>{{$message->message}}</span><br>
+                                        @if ($message->file)
+                                            <br/>
+                                            @if(isImage(asset("/uploaded/.$message->file")))
+                                                <img class="message-img" src="{{asset("/uploaded/.$message->file")}}" style="border: none;height: 140px;width: 109px;border-radius: 0px;">
+                                            @elseif($condition)
+                                                <div class="bg-gray-200 px-3 py-1 rounded-md shadow-md">{{$message->file}}</div>
+                                            @endif
+                                        @endif
+
                                     </div>
 
                                     @endforeach
