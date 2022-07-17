@@ -6,22 +6,27 @@ var pusher = new Pusher('433abd34166e2985ae62', {
 });
 var channel = pusher.subscribe('chat-channel');
 channel.bind('chat-event', function (data) {
-    alterLoading();
     let class_name = "received";
     if (data.from_user == current_user_id) {
         class_name = "sent"
     }
     let message_container = document.getElementById('message_container');
-    let file_content
-    if (file && isFileImage(file)) {
-        file_content = `<img class="message-img" src="/uploaded/${data.file}" style="border: none;height: 140px;width: 109px;border-radius: 0px;">`
-    } else {
-        file_content = `<div class="bg-gray-200 px-3 py-1 rounded-md shadow-md"><a href="/uploaded/${data.file}">${data.file}</a></div>`
+    var file_content = ""
+    if (file) {
+        if (isFileImage(file)) {
+            file_content = `<img class="message-img" src="/uploaded/${data.file}" style="border: none;height: 140px;width: 109px;border-radius: 0px;">`
+
+        } else {
+            file_content = `<div class="bg-gray-200 px-3 py-1 rounded-md shadow-md"><a href="/uploaded/${data.file}" target="_blank"> ${data.file}</a></div>`
+
+        }
     }
 
+
     message_container.innerHTML += `<div class="messages ${class_name}"><img src="https://travelquoter.com/assets/img/agents/25.png" alt="Agent Name"><span>${data.message}</span>${file_content}</div>`;
-    console.log(message_container)
     message_container.scrollTop = message_container.scrollHeight;
+    alterLoading();
+
 });
 document.getElementById('message').addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
@@ -30,6 +35,7 @@ document.getElementById('message').addEventListener("keypress", function (event)
     }
 });
 function sendMessage() {
+    alterLoading();
     var message_input = document.getElementById('message');
     document.getElementById('file-container').style.display = "none";
     let data = new FormData();
@@ -40,7 +46,6 @@ function sendMessage() {
     data.append('from_user', document.getElementById('from_user').value);
     if (file) {
         data.append('file', file);
-        alterLoading();
     }
     if (message_input.value || file) {
         axios.post('/api/send-message', data, {
@@ -95,5 +100,8 @@ function alterLoading() {
         send_button.innerText = "Send";
 
     }
+    console.log('isLoading before: ' + isLoading);
     isLoading = !isLoading;
+    console.log('isLoading after: ' + isLoading);
+
 }
